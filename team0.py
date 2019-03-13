@@ -6,8 +6,8 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
+team_name = 'SandP' # Only 10 chars displayed.
+strategy_name = 'Alternate'
 strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
@@ -18,13 +18,24 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b'. 
     '''
 
+    
+
+  
+    
+    if len(my_history)==0:
+        return('b')
+    elif (len(my_history))%(2)==1:
+        return('b')
+    else:
+        return('c')
+
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
     # The first round between these two players is my_history[0] and their_history[0].
     # The most recent round is my_history[-1] and their_history[-1].
     
     # Analyze my_history and their_history and/or my_score and their_score.
-    # Decide whether to return 'c' or 'b'.
+    # Decide whether to return 'c' or 'b'.     tjoprtuhgpoIu357
     
     return 'c'
 
@@ -39,7 +50,7 @@ def test_move(my_history, their_history, my_score, their_score, result):
         return True
     else:
         print("move(" +
-            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+            ", ".join(["'"+my_history+"'", "'" + their_history+"'",
                        str(my_score), str(their_score)])+
             ") returned " + "'" + real_result + "'" +
             " and should have returned '" + result + "'")
@@ -65,4 +76,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='b')
